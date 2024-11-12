@@ -49,7 +49,7 @@ app.get("/janken", (req, res) => {
     judgement = '勝ち';
     win += 1;
   } else {
-    judgement = '負け';
+    j;udgement = '負け';
   }
   total += 1; 
 
@@ -61,6 +61,45 @@ app.get("/janken", (req, res) => {
     total: total
   }
   res.render( 'janken', display );
+});
+
+app.get("/tyouhan", (req, res) => {
+  let hands = req.query.hands;
+  let win = Number( req.query.win )||0;
+  let total = Number( req.query.total )||0;
+  console.log( {hands, win, total});
+  const num = Math.floor( Math.random() * 2) + 1;
+  let cpu = '';
+  if( num==1 ){
+   cpu = '半';
+  }else if(num==2){
+    cpu = '丁';
+  }
+
+  // ここに勝敗の判定を入れる
+  let judgement = ''
+  if (hands !== '半' && hands !== '丁') {
+    judgement = '無効';  // 不正な入力を検出
+  } else if (hands === cpu) {
+    judgement = '勝ち';
+    win += 1;
+  } else if (
+    (hands === '半' && cpu === '丁') || 
+    (hands === '丁' && cpu === '半')
+  ) {
+    judgement = '負け';
+  }
+  
+  total += 1; 
+
+  const display = {
+    your: hands,
+    cpu: cpu,
+    judgement: judgement,
+    win: win,
+    total: total
+  }
+  res.render( 'tyouhan', display );
 });
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
