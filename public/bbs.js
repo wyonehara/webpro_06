@@ -117,33 +117,6 @@ function addPost(mes) {
     bbs.appendChild(cover);
 }
 
-//function deletePost(id, postElement) {
- //   if (!confirm('この投稿を削除しますか？')) return;
-//
-  //  const params = {
-    //    method: "POST",
-      //  body: 'id=' + encodeURIComponent(id),
-        //headers: {
-          //  'Content-Type': 'application/x-www-form-urlencoded'
-       // }
-    //};
-
-    //const url = "/delete";
-    //fetch(url, params)
-      //  .then((response) => {
-        //    if (!response.ok) {
-          //      throw new Error('削除に失敗しました');
-            //}
-          //  return response.json();
-//        })
-  //      .then(() => {
-    //        postElement.remove();
-      //      alert('投稿を削除しました');
-        //})
-        //.catch((error) => console.error(error));
-//}
-
-// 投稿を削除する関数
 function deletePost(id, postElement) {
     if (!confirm('この投稿を削除しますか？')) return;
 
