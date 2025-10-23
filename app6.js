@@ -19,13 +19,22 @@ app.get("/icon", (req, res) => {
   res.render('icon', { filename:"./public/Apple_logo_black.svg", alt:"Apple Logo"});
 });
 
-app.get("/luck", (req, res) => {
+app.get("/omikuji1", (req, res) => {
   const num = Math.floor( Math.random() * 6 + 1 );
   let luck = '';
   if( num==1 ) luck = '大吉';
   else if( num==2 ) luck = '中吉';
-  console.log( 'あなたの運勢は' + luck + 'です' );
-  res.render( 'luck', {number:num, luck:luck} );
+
+  res.send( '今日の運勢は' + luck + 'です' );
+});
+
+app.get("/omikuji2", (req, res) => {
+  const num = Math.floor( Math.random() * 6 + 1 );
+  let luck = '';
+  if( num==1 ) luck = '大吉';
+  else if( num==2 ) luck = '中吉';
+
+  res.render( 'omikuji2', {result:luck} );
 });
 
 app.get("/janken", (req, res) => {
