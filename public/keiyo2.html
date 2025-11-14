@@ -1,0 +1,30 @@
+.<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>駅を追加する</title>
+</head>
+<body>
+    <form action="/keiyo2">
+        <label for="id">ID</label>
+        <input type="number" name="id" id="id" required>
+
+        <label for="code">Code</label>
+        <input type="text" name="code" id="code" required>
+
+        <label for="name">駅名</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="name">乗り換え</label>
+        <input type="text" name="change" id="change" required>
+
+        <label for="name">人</label>
+        <input type="text" name="passengers" id="passengers" required>
+
+        <label for="name">東京駅からの距離</label>
+        <input type="text" name="distance" id="distance" required>
+
+        <input type="submit" values="登録">
+    </form>
+</body>
+</html>
